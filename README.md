@@ -13,7 +13,6 @@ You will:
 5. Apply debugging techniques for common MERN stack issues
 
 ## Project Structure
-
 ```
 mern-testing/
 ├── client/                 # React front-end

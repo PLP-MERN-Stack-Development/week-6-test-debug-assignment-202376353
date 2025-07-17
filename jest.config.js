@@ -1,24 +1,6 @@
-// jest.config.js - Root Jest configuration file
-
 module.exports = {
-  // Base configuration for all tests
+  // Use Jest projects to support both server and client configurations
   projects: [
-    // Server-side tests configuration
-    {
-      displayName: 'server',
-      testEnvironment: 'node',
-      testMatch: ['<rootDir>/server/tests/**/*.test.js'],
-      moduleFileExtensions: ['js', 'json', 'node'],
-      setupFilesAfterEnv: ['<rootDir>/server/tests/setup.js'],
-      coverageDirectory: '<rootDir>/coverage/server',
-      collectCoverageFrom: [
-        'server/src/**/*.js',
-        '!server/src/config/**',
-        '!**/node_modules/**',
-      ],
-    },
-    
-    // Client-side tests configuration
     {
       displayName: 'client',
       testEnvironment: 'jsdom',
@@ -39,8 +21,19 @@ module.exports = {
         '!**/node_modules/**',
       ],
     },
+    {
+      displayName: 'server',
+      testEnvironment: 'node',
+      testMatch: ['<rootDir>/server/tests/**/*.test.js'],
+      moduleFileExtensions: ['js', 'json'],
+      setupFilesAfterEnv: ['<rootDir>/server/tests/setup.js'],
+      coverageDirectory: '<rootDir>/coverage/server',
+      collectCoverageFrom: [
+        'server/src/**/*.js',
+        '!**/node_modules/**',
+      ],
+    },
   ],
-  
   // Global configuration
   verbose: true,
   collectCoverage: true,
